@@ -2,4 +2,4 @@
 - Subdomain Scanner Dengan PHP CLI
 
 ## How To Install?? 
-- Install Your PHP And Run
+- Install Your PHP And Run Code
