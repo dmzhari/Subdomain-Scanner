@@ -1,0 +1,30 @@
+<?php
+set_time_limit(0);
+error_reporting(0);
+define("blue","\e[1;34m");
+define("red","\e[1;31m");
+define("green","\e[1;32m");
+define("white","\e[0m");
+sleep(2);
+@system("clear");
+@system('date');
+sleep(2);
+@system("clear");
+echo red."(+) Subdomain Scanner\n";
+echo green."(+) Not Change http:// Or https:// \n";
+echo blue."(+) Coded By ./EcchiExploit\n\n";
+echo white."Site => ".red;
+$site = trim(fgets(STDIN,1024));
+echo white."Save File => ".red;
+$save = trim(fgets(STDIN,1024));
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, "https://api.hackertarget.com/hostsearch/?q=$site");
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+$subdo = curl_exec($curl);
+echo green.$subdo."\n";
+$file = fopen($save,'a');
+echo fwrite($file,$subdo);
+fclose($file);
+?>
